@@ -2,18 +2,18 @@
 <mat-dialog-content class="add_form">
   <mat-form-field>
     <mat-label>Введите название</mat-label>
-    <input matInput />
+    <input matInput [(ngModel)]="newElement.name"/>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Введите дату выполнения</mat-label>
-    <input matInput type="datetime-local"/>
+    <input matInput type="datetime-local" [(ngModel)]="newElement.completionDate"/>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Введите описание</mat-label>
-    <textarea matInput></textarea>
+    <textarea matInput [(ngModel)]="newElement.description"></textarea>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Отмена</button>
-  <button mat-button cdkFocusInitial>Создать</button>
+  <button mat-button cdkFocusInitial (click)="create()">Создать</button>
 </mat-dialog-actions>

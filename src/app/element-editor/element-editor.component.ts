@@ -38,19 +38,21 @@ export class ElementEditorComponent {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddElementComponent, {
+    const dialogRef = this.dialog.open(AddElementComponent, { data: {add: this.addElement, elService: this.elementService}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if (result !== undefined) {
-        // this.animal.set(result);
-      }
     });
+  }
+
+  addElement(el: Element, elService: ElementService): void {
+    elService.addElementToList(el);
+    console.log(elService.getAllElements());
   }
 
   deleteElement(id: number, elService: ElementService): void {
     elService.deleteElement(id);
-    console.log(elService.getAllElements())
+    console.log(elService.getAllElements());
   }
 }
