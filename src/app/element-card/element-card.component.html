@@ -1,0 +1,11 @@
+<mat-card appearance="outlined">
+    <mat-card-content>
+      <p>Название: {{element.name}}</p>
+      <p>Дата выполнения: {{element.completionDate}}</p>
+      <p>Описание: {{element.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>Копировать</button>
+        <button mat-button (click)="delete(element.id, elService)">Удалить</button>
+    </mat-card-actions>
+  </mat-card>
