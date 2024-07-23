@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>элемент</h2>
+<mat-dialog-content class="add_form">
+  <p>Название {{data.el.name}}</p>
+  <p>Дата создания {{data.el.creationDate}}</p>
+  <p>Дата выполнения {{data.el.completionDate}}</p>
+  <p>Описание {{data.el.description}}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Ок</button>
+</mat-dialog-actions>

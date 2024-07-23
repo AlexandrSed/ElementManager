@@ -1,31 +1,32 @@
-<table mat-table [dataSource]="elementList" class="mat-elevation-z8">
+<mat-table [dataSource]="elementList" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
   </ng-container>
 
-  <!-- Name Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Название </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <mat-header-cell *matHeaderCellDef> Название </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="creationDate">
-    <th mat-header-cell *matHeaderCellDef> Дата создания </th>
-    <td mat-cell *matCellDef="let element"> {{element.creationDate}} </td>
+    <mat-header-cell *matHeaderCellDef> Дата создания </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.creationDate}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="completionDate">
-    <th mat-header-cell *matHeaderCellDef> Дата выполнения </th>
-    <td mat-cell *matCellDef="let element"> {{element.completionDate}} </td>
+    <mat-header-cell *matHeaderCellDef> Дата выполнения </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.completionDate}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> описание </th>
-    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    <mat-header-cell *matHeaderCellDef> описание </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row matRipple
+  (click)="openDialog(row)"
+  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
