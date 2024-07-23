@@ -47,7 +47,7 @@ export class AddElementComponent {
 
   create(): void {
     this.newElement.creationDate = new Date();
-    this.newElement.id = this.data.elService.elementList[this.data.elService.elementList.length - 1].id + 1;
+    this.newElement.id = this.data.elService.getAllElements()[this.data.elService.getAllElements().length - 1].id + 1;
     this.data.add(this.newElement, this.data.elService);
     this.onNoClick();
   }
