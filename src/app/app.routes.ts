@@ -10,6 +10,6 @@ export const routes: Routes = [{
   {
     path: 'view',
     component: ElementViewerComponent,
-    title: 'Viewer details',
+    title: 'Viewer page',
   },
 ];

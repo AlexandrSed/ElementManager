@@ -1,13 +1,13 @@
 <main>
   <header>
-    <nav>
+    <mat-toolbar class="nav">
       <a [routerLink]="['/']">
           <p>Editor</p>
       </a>
       <a [routerLink]="['view']">
         <p>Viewer</p>
       </a>
-    </nav>
+    </mat-toolbar>
 </header>
   <section class="content">
     <router-outlet></router-outlet>

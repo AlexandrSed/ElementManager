@@ -1,6 +1,4 @@
-.list {
-    margin-top: 2rem;
+.add_form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 }

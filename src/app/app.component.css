@@ -1,0 +1,10 @@
+main {
+    margin: 0 auto;
+    position: relative;
+    max-width: 600px;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+}
