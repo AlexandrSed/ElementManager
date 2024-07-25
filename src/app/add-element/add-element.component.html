@@ -12,6 +12,8 @@
     <mat-label>Введите описание</mat-label>
     <textarea matInput [(ngModel)]="newElement.description"></textarea>
   </mat-form-field>
+  <p class="error">{{ValNameMessage}}</p>
+  <p class="error">{{ValDateMessage}}</p>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Отмена</button>

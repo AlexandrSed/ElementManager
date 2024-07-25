@@ -37,19 +37,41 @@ export class AddElementComponent {
     id: 0,
     name: "",
     creationDate: new Date(12, 4, 2023, 12, 0, 20),
-    completionDate: new Date(),
+    completionDate: new Date(0),
     description: ""
   };
 
+  ValNameMessage: string = "";
+  ValDateMessage: string = "";
     
   constructor(@Inject(MAT_DIALOG_DATA) public data: {add: (el: Element, elService: ElementService)=> void, elService: ElementService}) {
   }
 
   create(): void {
+    this.ValNameMessage = "";
+    this.ValDateMessage = "";
+
     this.newElement.creationDate = new Date();
     this.newElement.id = this.data.elService.getAllElements()[this.data.elService.getAllElements().length - 1].id + 1;
-    this.data.add(this.newElement, this.data.elService);
-    this.onNoClick();
+
+    if (this.newElement.name === "") {
+      this.ValNameMessage = "Введите название";
+    }
+
+    if (typeof this.newElement.completionDate !== "string") {
+      this.ValDateMessage = "Введите дату";
+    }
+    else {
+      this.newElement.completionDate = new Date(this.newElement.completionDate);
+
+      if (this.newElement.completionDate.getTime() < this.newElement.creationDate.getTime())
+        this.ValDateMessage = "Введите дату выполнения позже даты создания";
+    }
+    
+    if (this.ValNameMessage === "" && this.ValDateMessage === "") {
+      this.data.add(this.newElement, this.data.elService);
+      this.onNoClick();
+    }
   }
 
   onNoClick(): void {
