@@ -35,7 +35,7 @@ export class ElementViewerComponent {
   elementService: ElementService = inject(ElementService);
   readonly elementList: Element[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'creationDate', 'completionDate', 'description', 'buttons'];
+  displayedColumns: string[] = ['id', 'name', 'creationDate', 'completionDate', 'buttons'];
 
   constructor() {
     this.elementList = this.elementService.getAllElements();
