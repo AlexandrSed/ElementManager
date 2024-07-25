@@ -25,6 +25,15 @@
     <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="buttons">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"> <button mat-button (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu">Переместить</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="moveUp(i)">Вверх</button>
+        <button mat-menu-item (click)="moveDown(i)">Вниз</button>
+      </mat-menu> </mat-cell>
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row matRipple
   (click)="openDialog(row)"
